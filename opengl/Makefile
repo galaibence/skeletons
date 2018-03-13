@@ -1,5 +1,5 @@
-CXX         := zapcc++
-CXXFLAGS    := -O3 -march=core-avx2 -std=c++1z -stdlib=libc++ -Wall -pedantic
+CXX         := clang++
+CXXFLAGS    := -O3 -march=core-avx2 -std=c++17 -stdlib=libc++ -Wall -pedantic
 LDFLAGS     := -fuse-ld=lld -flto -L/usr/local/lib -lc++ -lc++abi -lGLEW -lglfw -lGL
 INCFLAGS    := -I./include
 
@@ -13,7 +13,7 @@ RSRC_DIR    := ./resources
 
 SOURCES	  	:= $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.cc))
 INCLUDES    := $(foreach idir,$(INC_DIR),$(wildcard $(idir)/*.h))
-OBJECTS 	  := $(patsubst ./%.cc, ./%.o,$(SOURCES))
+OBJECTS 	:= $(patsubst ./%.cc, ./%.o,$(SOURCES))
 
 first: $(TARGET)
 
